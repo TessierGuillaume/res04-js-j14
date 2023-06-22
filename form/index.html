@@ -1,28 +1,33 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/styles/styles.css">
-    <title>Exercices Formulaires</title>
+    <title>TODOList</title>
 </head>
+
 <body>
-    <div id="app">
-        <h1>Ma ToDo List</h1>
-    
-        <form @submit.prevent="addTask">
-          <input type="text" v-model="newTask" placeholder="Ajouter une nouvelle tâche">
-          <button type="submit">Ajouter</button>
-        </form>
-    
+    <section id="app" class="container">
+        <h2>Tasks</h2>
         <ul>
-          <li v-for="(task, index) in tasks" :key="index">
-            
-            <button @click="removeTask(index)">Supprimer</button>
-          </li>
+            <li v-for="task in tasks" class="task-item">
+                <span v-if="task.done === false">{{ task.content }}</span>
+                <span v-else class="strikeout">{{ task.content }}</span>
+                <button v-if="task.done === false" class="task-item__btn" @click="didTask(task)">✅</button>
+            </li>
         </ul>
-      </div>
-      
-    <script type="module" src="assets/js/app/index.js"></script>
+        <form @submit.prevent="addTask" class="submit">
+            <fieldset class="submit-field">
+                <label for="task">Enter task</label>
+                <input type="text" name="task" id="task" />
+            </fieldset>
+            <button type="submit">Add</button>
+        </form>
+    </section>
+    <script src="assets/js/app/index.js" type="module"></script>
 </body>
+
+
 </html>

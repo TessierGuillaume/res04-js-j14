@@ -1,19 +1,17 @@
-// new Vue({
-//     el: "#app",
-//     data: {
-//       tasks: [],
-//       newTask: ""
-//     },
-    methods: {
-      addTask() 
-        if (this.newTask !== "") {
-          this.tasks.push(this.newTask);
-          this.newTask = "";
-        }
-      }
-      removeTask(index) 
-        this.tasks.splice(index, 1);
-      
-
-  ;
-  
+export default {  
+    data() {  
+        return {  
+            tasks : [ ]  
+        }  
+    },  
+    methods : {  
+        addTask (event) {  
+            let value = event.target.elements.task.value;  
+            this.tasks.push({content: value, done: false});
+            event.target.elements.task.value = "";
+        },
+        didTask(task) {
+            task.done = true;
+        }  
+    }  
+}
