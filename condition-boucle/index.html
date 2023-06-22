@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VueJS : conditions et boucles</title>
+</head>
+<body>
+  
+    <section id="app">
+        <h1 v-if="animal === 'Dogs'">Dogs</h1>
+        <h1 v-else-if="animal === 'Cats'">Cats</h1>
+        <h1 v-else>Not Dogs or Cats</h1>
+        <button @click="changeAnimal">change entre chien et chat</button>
+    </section>
+<script type="module" src="assets\js\app\index.js"></script>    
+</body>
+</html>

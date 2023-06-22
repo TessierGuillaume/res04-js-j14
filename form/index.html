@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/styles/styles.css">
+    <title>Exercices Formulaires</title>
+</head>
+<body>
+    <div id="app">
+        <h1>Ma ToDo List</h1>
+    
+        <form @submit.prevent="addTask">
+          <input type="text" v-model="newTask" placeholder="Ajouter une nouvelle tâche">
+          <button type="submit">Ajouter</button>
+        </form>
+    
+        <ul>
+          <li v-for="(task, index) in tasks" :key="index">
+            
+            <button @click="removeTask(index)">Supprimer</button>
+          </li>
+        </ul>
+      </div>
+      
+    <script type="module" src="assets/js/app/index.js"></script>
+</body>
+</html>
